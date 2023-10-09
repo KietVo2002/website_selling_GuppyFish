@@ -1,0 +1,123 @@
+﻿@model WebApplication1.Models.Ca
+
+@{
+    ViewBag.Title = "SuaCa";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align: center; color: #eb4800;">Chỉnh Sửa Thông Tin</h2>
+<style>
+    input {
+        width: 900px;
+    }
+
+    select {
+        width: 900px;
+    }
+
+    textarea {
+        width: 900px;
+        height: 150px;
+    }
+    select{
+        width:915px;
+    }
+
+
+</style>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+   
+    <hr />
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.MaCa)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaCa, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div style="width:18px;margin:5px 0 0 165px; padding-top:10px;">
+                @Model.MaCa
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.TenCa, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TenCa, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TenCa, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.GiaBan, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.GiaBan, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.GiaBan, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MoTa, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <textarea name="MoTa">@Model.MoTa</textarea>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.AnhCa, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+
+            <input type="file" name="fileupload" /><br />
+            <img style="margin-left:160px;width:100px;height:50px;" src="@Url.Content("~/images/"+ Model.AnhCa)" />
+            (Ảnh Hiện Tại)
+            @ViewBag.ThongBao
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NgayCapNhat, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NgayCapNhat, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NgayCapNhat, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SoLuongTon, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SoLuongTon, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SoLuongTon, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaDC, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("MaDC")
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaNX, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("MaNX")
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Lưu" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Trở Về", "Ca")
+</div>

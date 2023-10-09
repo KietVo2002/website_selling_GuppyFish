@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebApplication1.Models.Ca>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+
+
+<section class="header_text">
+    Chúng Tôi Chuyên Cung Cấp Các Dòng Các Chất Lượng Và Ưa Chuộng Nhất hiện Nay
+    <br />Guppy
+</section>
+
+<h4 class="title">
+    <span class="pull-left"><span class="text"><span class="line">Cá <strong>Guppy</strong></span></span></span>
+    
+</h4>
+
+<div id="myCarousel" class="myCarousel carousel slide">
+    <div class="carousel-inner">
+        <div class="active item">
+            <div class="item">
+                <ul class="thumbnails">
+                    @foreach (var ca in Model)
+
+                    {
+                        <li class="span3">
+                            <div class="product-box">
+                                <a href="@Url.Action("Details", "GuppyStore", new { id = ca.MaCa})">
+                                    <img class="fish" alt="@ca.TenCa" src="~/images/@ca.AnhCa" />
+                                    <a class="title">@ca.TenCa</a> <br />
+                                    <a class="title">@ca.GiaBan</a>
+                                </a>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+

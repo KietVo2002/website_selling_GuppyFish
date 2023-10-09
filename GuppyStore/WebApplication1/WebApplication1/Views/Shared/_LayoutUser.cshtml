@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <title>Bootstrap E-commerce Templates</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
+    <!-- bootstrap -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <link href="~/Content/bootstrappage.css" rel="stylesheet" />
+
+    <!-- global styles -->
+    <link href="~/Content/flexslider.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+
+    <!-- scripts -->
+    <script src="~/Scripts/jquery-1.7.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/superfish.js"></script>
+    <script src="~/Scripts/jquery.scrolltotop.js"></script>
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="top-bar" class="container">
+        <div class="row">
+            <div class="span4">
+                <form method="POST" class="search_form">
+                    <input type="text" class="input-block-level search-query" Placeholder="Guppy-Cá 7 màu">
+                </form>
+            </div>
+            <div class="span8">
+                <div class="account pull-right">
+
+                    <ul class="user-menu">
+                        <li> @Html.ActionLink("Trang Chủ", "Index", "WepApplication1", "GuppyStore") </li>
+                     
+
+                        <li> @Html.ActionLink("Đăng Nhập", "Dangnhap", "NguoiDung") </li>
+
+                        <li> @Html.ActionLink("Đăng Ký", "Dangky", "NguoiDung") </li>
+
+
+                        <li> @Html.Action("GiohangPartial", "GioHang")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper" class="container">
+        <section class="navbar main-menu">
+            <div class="navbar-inner main-menu">
+                <a href="index.html" class="logo pull-left">GUPPY <img src="~/images/Logo-website.png " class="site_logo" alt=""></a>
+                @Html.Action("Dongca", "GuppyStore")
+
+            </div>
+        </section>
+        <section class="homepage-slider" id="home-slider">
+
+            <div class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <img src="~/images/carousel/blue.jpg" alt="" />
+                        <div class="intro">
+                            <h1>Blue ToPaz BDS</h1>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="~/images/carousel/rongxanhindo.jpg" alt="" />
+                        <div class="intro">
+                            <h1>Rồng Tím</h1>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="~/images/carousel/RedDragon.jpg" alt="" />
+                        <div class="intro">
+                            <h1>Rồng Đỏ BDS Halfmon</h1>
+                            <p><span>Dòng Cá Hot Nhất Hiện Nay</span></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+        <div>
+            @RenderBody()
+        </div>
+
+
+
+
+        <section id="footer-bar">
+            <div class="row">
+                <div class="span3">
+                    <h4>Cá 7 Màu Guppy</h4>
+                    <ul class="nav">
+
+                        <li> @Html.ActionLink("Trang Chủ", "Index", "GuppyStore") </li>
+
+                        <li> @Html.ActionLink("Đăng Nhập", "Dangnhap", "NguoiDung") </li>
+
+                        <li> @Html.ActionLink("Đăng Ký", "Dangky", "NguoiDung") </li>
+
+                        <li> @Html.ActionLink("Giỏ Hàng", "GioHang", "GioHang")</li>
+
+
+                    </ul>
+                </div>
+                <div class="span4">
+                    <h4>Tài Khoản Của Tôi</h4>
+                    <ul class="nav">
+                        <li> @Html.ActionLink("Đăng Nhập", "Dangnhap", "NguoiDung") </li>
+                        <li> @Html.ActionLink("Đăng Ký", "Dangky", "NguoiDung") </li>
+                        <li> @Html.ActionLink("Giỏ Hàng", "GioHang", "GioHang")</li>
+
+                    </ul>
+                </div>
+                <div class="span5">
+                    <p class="logo"><img src="~/images/Logo-website.png" class="site_logo" alt=""> Guppy</p>
+                    <p>Chúng Tôi Cam Kết Về Chất Lượng Cá và Bảo Hành Cá Tận Tay Cho Khách Hàng</p>
+                    <h5>Thông Tin Liên Hệ</h5>
+                    <p>
+                        <strong>Điện Thoại:</strong>&nbsp;0901415957<br>
+                        <strong>Zalo</strong>&nbsp;0901415957<br>
+                        <strong>Email:</strong>&nbsp;<a href="#">33kiet2342002@gmail.com</a>
+                    </p>
+                    <br />
+                    <span class="social_icons">
+                        <a class="facebook" href="#">Facebook</a>
+                        <a class="twitter" href="#">Twitter</a>
+                    </span>
+                </div>
+            </div>
+        </section>
+        <section id="copyright">
+            <span>Cam Kết Về Chất Lượng Cá Giống</span>
+        </section>
+    </div>
+    <script src="~/Scripts/common.js"></script>
+    <script src="~/Scripts/jquery.flexslider-min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(document).ready(function () {
+                $('.flexslider').flexslider({
+                    animation: "fade",
+                    slideshowSpeed: 4000,
+                    animationSpeed: 600,
+                    controlNav: false,
+                    directionNav: true,
+                    controlsContainer: ".flex-container" // the container that holds the flexslider
+                });
+            });
+        });
+    </script>
+
+
+
+
+
+
+</body>
+</html>

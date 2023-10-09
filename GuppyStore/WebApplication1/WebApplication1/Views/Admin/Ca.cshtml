@@ -1,0 +1,76 @@
+﻿@using WebApplication1.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<WebApplication1.Models.Ca>
+
+<div class="container">
+    @{
+        ViewBag.Title = "Ca";
+        Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    }
+
+
+
+    <p>
+        @Html.ActionLink("Thêm Mới ", "ThemDongCa")
+    </p>
+    <table class="table">
+        <tr>
+            <th style="width:200px">Tên Cá</th>
+            <th style="width:200px">Gía Bán</th>
+            <th style="width:200px">Tên Dòng Cá</th>
+            <th style="width:200px">Ảnh Bìa</th>
+            <th style="width:200px">Ngày Nhập</th>
+            <th style="width:200px">Số Lượng Tồn</th>
+            <th style="width:200px">Tên Dòng Cá</th>
+            <th style="width:200px">Tên Nới Nhập</th>
+
+            <th style="width:200px"></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenCa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GiaBan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MoTa)
+                </td>
+                <td>
+                    <img style="width:100px;height:50px;" src="@Url.Content("~/images/"+ item.AnhCa)" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayCapNhat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuongTon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DongCa.TenDongCa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoiXuat.TenNX)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "SuaCa",new { id = item.MaCa }) |
+                    @* @Html.ActionLink("Chi Tiết", "ChiTietCa", new { id = item.MaCa }) |*@
+                    @Html.ActionLink("Xóa", "XoaCa", new { id = item.MaCa })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+@*Tạo Liên Kết Các Trang*@
+Trang @(Model.PageCount<Model.PageNumber ? 0 :Model.PageNumber)/@Model.PageCount;
+<div class="MenuTrang">
+    @Html.PagedListPager(Model,Page =>Url.Action("Ca", new { Page = Page}))
+</div>
+<style>
+    .MenuTrang li {
+        display:inline;
+    }
+</style>

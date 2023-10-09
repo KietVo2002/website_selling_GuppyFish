@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<style>
+    .button {
+        font-weight:900;
+        background-color: white;
+        border: 1px solid black;
+        color: #eb4800;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+        .button:hover {
+            background-color: #eb4800;
+            color: white
+        }
+      
+    .span5{
+        margin-top:90px;
+    }
+    span {
+        color: #eb4800;
+    }
+    .DuLieu{
+        height:400px;
+    }
+    .img {
+        border: 5px solid gray;
+        border-radius:10px;
+    } 
+</style>
+<h4 class="title">
+    <span class="pull-left"><span class="text"><span class="line">Chi Tiết <strong>Dòng Cá</strong></span></span></span>
+</h4>
+<div class="container">
+    <div class="row DuLieu ">
+
+        <div class="span4">
+            <h3>Tên Dòng Cá  <span> :@Model.TenCa </span></h3>
+            <img class="fish img" alt="@Model.TenCa" src="~/images/@Model.AnhCa" />
+        </div>
+        <div class="span5">
+            <div>
+                <h4>
+                    Dòng Cá:
+                    @Model.MoTa
+                </h4>
+            </div>
+            <div>
+                <h4>
+                    Giá Bán:
+                    @Model.GiaBan VNĐ/Cặp
+                </h4>
+            </div>
+            <div>
+                <a class="button" href="@Url.Action("ThemGioHang","GioHang", new { @iMaCa = Model.MaCa, @strURL = Request.Url.ToString() }  )">
+                    Mua Ngay
+                </a>
+            </div>
+        </div>
+
+        <div>
+            <h5>Thông Tin Liên Hệ</h5>
+            <p>
+                <strong>Điện Thoại:</strong>&nbsp;0901415957<br>
+                <strong>Zalo</strong>&nbsp;0901415957<br>
+                <strong>Email:</strong>&nbsp;<a href="#">33kiet2342002@gmail.com</a>
+            </p>
+            <br />
+            <h5>Địa Chỉ iên Hệ:</h5>
+            <p>
+                1381/3C,Đường Vườn Lài, Phường An Phú Đông , Quận 12 , Thành Phố Hồ Chí Minh
+
+            </p>
+        </div>
+
+
+
+    </div>
+</div>
+
+

@@ -1,0 +1,88 @@
+﻿@using WebApplication1.Models;
+@model List<GioHang>
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<style>
+    tr {
+        border: 1px solid gray;
+    }
+   
+   
+        
+    td {
+        font-size: 15px;
+        font-weight: 700;
+        border-left: none;
+        border-right: none;
+        border-top-color: gray;
+        border-bottom-color: gray;
+    }
+   
+        a:hover {
+            color: #eb4800;
+        }
+    .Submit {
+        background-color: white;
+        margin-left: 40px;
+        border: 1px solid gray;
+        border-radius: 3px;
+        color: #eb4800;
+        font-weight: 600;
+    }
+
+        .Submit:hover {
+            background-color: #eb4800;
+            color: white;
+            border: 1px solid black;
+            border-radius: 3px;
+        }
+
+    input {
+        width: 50px;
+    }
+    .DatHang{
+        border:1px solid black;
+width:60px;
+    }
+</style>
+<h4 class="title"><span class="text"><strong>Giỏ Hàng </strong> Của Bạn</span></h4>
+<table style="width:1200px; height:250px;" border="1">
+    <tr>
+
+        <td>Tên Cá</td>
+        <td>Sản Phẩm</td>
+        <td>Số Lượng</td>
+        <td> Đơn Giá</td>
+        <td>Tổng Thành Tiền</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@item.sTenCa</td>
+            <td> <img style="width:160px;height:100px;" src="~/images/@item.sAnhCa" /></td>
+            @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @iMaSP = item.iMaCa }))
+            {
+                <td><input type="number" min="1" name="txtSoLuong" value="@item.iSoLuong" />  </td>
+                <td>@string.Format("{0:0,0}", item.dDonggia)</td>
+                <td>@string.Format("{0:0,0}", item.dThanhtien)</td>
+                <td><a href="@Url.Action("Details","GuppyStore", new {id = item.iMaCa })">Chi Tiết </a></td>
+                <td>@Html.ActionLink("Xoá", "XoaGioHang", new { @iMaSP = item.iMaCa })</td>
+                <td><input class="Submit" type="submit" value="Cập Nhập " /> </td>
+            }
+        </tr>
+    }
+    <tr style="font-weight:bold; color:red;">
+        <td colspan="7">Số Lượng : @ViewBag.TongSoLuong</td>
+        <td colspan="3">Tổng Số Tiền: @string.Format("{0:0,0}", ViewBag.TongTien) VNĐ</td>
+        <td colspan="2">
+            <h7> @Html.ActionLink("Đặt Hàng Ngay", "DatHang", "GioHang")  </h7>
+        </td>
+    </tr>
+</table>
+
+
+
+

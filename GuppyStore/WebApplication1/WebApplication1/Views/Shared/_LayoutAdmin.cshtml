@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <title>Bootstrap E-commerce Templates</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
+    <!-- bootstrap -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <link href="~/Content/bootstrappage.css" rel="stylesheet" />
+
+    <!-- global styles -->
+    <link href="~/Content/flexslider.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+
+    <!-- scripts -->
+    <script src="~/Scripts/jquery-1.7.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/superfish.js"></script>
+    <script src="~/Scripts/jquery.scrolltotop.js"></script>
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="~/Scripts/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({ Selector: 'textarea' })</script>
+</head>
+<body>
+    <div id="top-bar" class="container">
+        <div class="row">
+            <div class="span4">
+                <form method="POST" class="search_form">
+                    <input type="text" class="input-block-level search-query" Placeholder="Guppy-Cá 7 màu">
+                </form>
+            </div>
+            <div class="span8">
+                <div class="account pull-right">
+
+                    <ul class="user-menu">
+                        <li> @Html.ActionLink("Trang Chủ", "Index", "Admin") </li>
+                        <li> @Html.ActionLink("Đăng Nhập", "Login", "Admin") </li>
+                        <li> @Html.ActionLink("Quản Lý Cá", "Ca", "Admin") </li>
+
+
+                        <li> @Html.ActionLink("Thêm Cá", "ThemDongCa", "Admin") </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        @RenderBody()
+    </div>
+
+
+    <div class="container">
+        
+    </div>
+</body>
+</html>

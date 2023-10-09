@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Dangnhap";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<style>
+    table {
+        height: 200px;
+    }
+
+    .button {
+        font-weight: 900;
+        background-color: white;
+        border: 1px solid black;
+        color: #eb4800;
+        padding: 5px 160px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 0px;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+        .button:hover {
+            background-color: #eb4800;
+            color: white
+        }
+h5{
+    text-align:center;
+}
+    #TenDN {
+        width: 400px;
+    }
+
+    #matkhau {
+        width: 400px;
+    }
+</style>
+<h5 style="color:red">@ViewBag.Thongbao</h5>
+<div style="height:500px;">
+    <h4 class="title"><span class="text"><strong>Đăng Nhập </strong>Tài Khoản </span></h4>
+    <h4 style="text-align: center; color: #eb4800">Đăng Nhập</h4>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <div style="margin-left:400px;">
+            <h4> Tên Đăng Nhập:</h4>
+            @Html.TextBox("TenDN")
+            @ViewData["Loi2"]
+
+            <h4> Nhập Mật Khẩu:</h4>
+            @Html.Password("matkhau")
+            @ViewData["Loi3"]
+            <div>
+                <br />
+                <input class="button" type="submit" value="Đăng Nhập" />
+            </div>
+        </div>
+    }
+    <div style="height:400px">
+        <h4>Thông Tin Liên Hệ</h4>
+        <p>
+            <strong>Điện Thoại:</strong>&nbsp;0901415957<br>
+            <strong>Zalo</strong>&nbsp;0901415957<br>
+            <strong>Email:</strong>&nbsp;<a href="#">33kiet2342002@gmail.com</a>
+        </p>
+        <h4>Địa Chỉ iên Hệ:</h4>
+        <p>
+            1381/3C,Đường Vườn Lài, Phường An Phú Đông , Quận 12 , Thành Phố Hồ Chí Minh
+
+        </p>
+    </div>
+
+</div>

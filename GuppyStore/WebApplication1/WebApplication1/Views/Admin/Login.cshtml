@@ -1,0 +1,53 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/Content/css/style.css" media="screen" type="text/css" />
+    <style>
+        .login-submit {
+            background-color: #eb4800;
+            color:white;
+        }
+            .login-submit:hover {
+                background-color: #eb4800;
+                color:white;
+            }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <div class="login-card">
+            <h1>Đăng Nhập</h1><br>
+
+                              <form>
+
+                                  @ViewData["Loi1"]
+                                  <input type="text" name="username" placeholder="Tên Tài Khoản">
+
+                                  <input type="password" name="password" placeholder="Mật Khẩu">
+                                  @ViewData["Loi2"]
+                                  <input type="submit" name="login" class="login login-submit" value="login">
+                              </form>
+
+            <div class="login-help">
+                <a href="#">Register</a> • <a href="#">Quên Mật Khẩu</a>
+            </div>
+            
+        </div>
+    }
+        <!-- <div id="error"><img src="https://dl.dropboxusercontent.com/u/23299152/Delete-icon.png" /> Your caps-lock is on.</div> -->
+
+        <script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script>
+
+    </body>
+</html>

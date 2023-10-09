@@ -1,0 +1,15 @@
+﻿@model IEnumerable<WebApplication1.Models.DongCa>
+@foreach (var item in Model)
+{
+<nav id="menu" class="pull-right">
+    <ul>
+
+        <li>
+            <a href="@Url.Action("SPTheodongca", "GuppyStore", new { id = item.MaDC})">
+            @item.TenDongCa </a>
+        </li>
+    </ul>
+</nav>
+        }
+
+   

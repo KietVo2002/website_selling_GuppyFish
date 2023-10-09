@@ -1,0 +1,88 @@
+﻿@model WebApplication1.Models.Ca
+
+@{
+    ViewBag.Title = "XoaCa";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h3 style="text-align: center; color: #eb4800;">Bạn Có Chắc Chắn Muốn Xóa ?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Dòng Cá:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenCa)
+        </dd>
+
+        <dt>
+            Gía Bán:
+        </dt>
+
+        <dd>
+            @string.Format("{0:0,0}" , Model.GiaBan) VNĐ
+        </dd>
+
+        <dt>
+            Mô Tả:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            Hình Ảnh:
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/images/" +Model.AnhCa)" style="width:100px" />
+        </dd>
+
+        <dt>
+            Ngày Cập Nhật:
+        </dt>
+
+        <dd>
+            @string.Format("{0:dd/MM/yyyy}",Model.NgayCapNhat)
+        </dd>
+
+        <dt>
+            Số Lượng Tồn:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongTon)
+        </dd>
+
+        <dt>
+            Dòng Cá:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DongCa.TenDongCa)
+        </dd>
+
+        <dt>
+            Nơi Xuất:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoiXuat.TenNX)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa Ngay" class="btn btn-default" /> |
+            @Html.ActionLink("Trở Về", "Ca")
+        </div>
+    }
+</div>

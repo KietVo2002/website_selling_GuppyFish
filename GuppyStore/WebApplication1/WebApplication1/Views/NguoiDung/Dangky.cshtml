@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "Dangky";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<style>
+    
+    
+    .sub {
+        font-weight: 900;
+        background-color: white;
+        border: 1px solid black;
+        color: #eb4800;
+        padding: 5px 150px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px -85px;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+        .sub:hover {
+            background-color: #eb4800;
+            color: white
+        }
+</style>
+
+<table align="center">
+
+    <h4 class="title"><span class="text"><strong>Đăng Ký </strong> Tài Khoản</span></h4>
+    <h3 style="text-align: center; color: #eb4800">Đăng Ký</h3>
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+        <tr style="height:40px">
+            <td> <h5>Họ Tên Khách Hàng:</h5></td>
+            <td>@Html.TextBox("HotenKH")</td>
+            @ViewData["Loi1"]
+        </tr>
+
+        <tr style="height:40px">
+            <td><h5>Tên Đăng Nhập:</h5></td>
+            <td> @Html.TextBox("TenDN")</td>
+            @ViewData["Loi2"]
+
+        </tr>
+        <tr style="height:40px">
+            <td><h5>Mật Khẩu:</h5></td>
+            <td>
+                @Html.Password("matkhau")
+                @ViewData["Loi3"]
+            </td>
+        </tr>
+
+        <tr style="height:40px">
+            <td><h5>Mật Khẩu Nhập Lại:</h5></td>
+            <td>
+                @Html.Password("matkhaunhaplai")
+                @ViewData["Loi4"]
+            </td>
+
+        </tr>
+        <tr style="height:40px">
+            <td><h5>Địa Chỉ:</h5></td>
+            <td>
+                @Html.TextBox("Diachi")
+                @ViewData["Loi7"]
+            </td>
+        </tr>
+
+        <tr style="height:40px">
+            <td><h5>Email:</h5></td>
+            <td>
+                @Html.TextBox("Email")
+                @ViewData["Loi5"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td><h5>Số Điện Thoại:</h5></td>
+            <td>
+                @Html.TextBox("DienThoai")
+                @ViewData["Loi6"]
+            </td>
+        </tr>
+
+        <tr style="height:40px">
+            <td><h5>Ngày Sinh:</h5></td>
+            <td>
+                <input type="date" name="Ngaysinh" />
+            </td>
+        </tr>
+
+        <tr style="height:40px">
+            <td></td>
+            <td>
+                <input class="sub" type="submit" value="Đăng Ký" />
+            </td>
+        </tr>
+    }
+</table>
+<div>
+    <div>
+        <h5>Thông Tin Liên Hệ</h5>
+        <p>
+            <strong>Điện Thoại:</strong>&nbsp;0901415957<br>
+            <strong>Zalo</strong>&nbsp;0901415957<br>
+            <strong>Email:</strong>&nbsp;<a href="#">33kiet2342002@gmail.com</a>
+        </p>
+        <br />
+        <h5>Địa Chỉ iên Hệ:</h5>
+        <p>
+            1381/3C,Đường Vườn Lài, Phường An Phú Đông , Quận 12 , Thành Phố Hoog Chí Minh
+
+        </p>
+    </div>
+</div>
+
